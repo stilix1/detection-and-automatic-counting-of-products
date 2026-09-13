@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Datasets
+data/
+*.csv
+
+# Model weights and training runs
+runs/
+runs_*/
+runs_windows_full/
+runs_windows_quick/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.ckpt
+
+# Reports / temporary outputs
+demo/result*.jpg
+demo/result*.png
+report/evidence/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+models/
+.yolo11s.pt
+.yolo26n.pt
+.rtdetr-l.pt

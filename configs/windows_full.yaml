@@ -1,0 +1,59 @@
+project_name: shelf_product_counter_windows_full
+seed: 42
+device: auto
+num_classes: 1
+class_names: [product]
+input_size: 640
+batch_size: 1
+epochs: 3
+workers: 4
+confidence_threshold: 0.25
+iou_threshold: 0.50
+dense_scene_threshold: 80
+warmup_runs: 10
+benchmark_runs: 100
+max_train_images: null
+train_fraction: 1.0
+paths:
+  dataset_root: data/sku110k
+  coco_train: data/sku110k/annotations/train.json
+  coco_val: data/sku110k/annotations/val.json
+  coco_test: data/sku110k/annotations/test.json
+  yolo_yaml: data/sku110k/sku110k.yaml
+  runs: runs_windows_full
+models:
+  yolo11:
+    backend: ultralytics
+    weights: yolo11s.pt
+    input_size: 640
+    batch_size: 10
+    workers: 4
+    amp: true
+  rtdetr:
+    backend: ultralytics
+    weights: rtdetr-l.pt
+    input_size: 640
+    batch_size: 2
+    workers: 4
+    amp: true
+  fasterrcnn:
+    backend: torchvision
+    name: fasterrcnn_resnet50_fpn_v2
+    input_size: 640
+    batch_size: 3
+    workers: 6
+    amp: true
+  retinanet:
+    backend: torchvision
+    name: retinanet_resnet50_fpn_v2
+    input_size: 640
+    batch_size: 3
+    workers: 6
+    amp: true
+  ssd:
+    backend: torchvision
+    name: ssdlite320_mobilenet_v3_large
+    input_size: 320
+    batch_size: 8
+    workers: 6
+    amp: true
